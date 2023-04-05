@@ -1,0 +1,147 @@
+@charset "UTF-8";
+
+* {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+body {
+    display: grid;
+    grid-template-rows: 200px 50px 1fr 200px;
+    grid-template-areas: "header" "nav" "section" "footer";
+    width: 90vw;
+    height: 1000px;
+    margin: 0 auto;
+}
+
+header {
+    display: flex;
+    background-color: aliceblue;
+    justify-content: center;
+    align-items: center;
+    color: #6F38C5;
+}
+
+header>h1 {
+    font-size: 3em;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    background-color: aliceblue;
+    padding-right: 40px;
+    padding-left: 40px;
+    align-items: center;
+    font-size: 1.2em;
+    ;
+}
+
+nav>a:hover{
+	background-color: #2192FF;
+    cursor: pointer;
+    /* 추가 */
+    color: white;
+}
+nav>div:first-child>a:not(a:first-child) {
+    padding-left: 40px;
+}
+
+nav>div:last-child>a {
+    padding-right: 20px;
+    padding-left: 20px;
+    border: solid 2px #98A8F8;
+    border-radius: 8px;
+}
+
+
+a {
+    text-decoration: none;
+    cursor: pointer;
+    color: #2192FF;
+}
+
+footer {
+    font-size: 20px;
+    background-color: #98A8F8;
+    text-align: center;
+    padding-top: 30px;
+    color: #EAFDFC;
+}
+
+input[type="text"]::placeholder {
+    color: #999;
+}
+
+
+section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    background-color: aliceblue;
+    color: black;
+    border-top: 2px solid #2192FF;
+    border-bottom: 2px solid #2192FF;
+}
+
+section>h1 {
+    font-size: 3em;
+    color: #2192FF;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 60%;
+    width: 50%;
+}
+
+form>span {
+    font-size: 2ems;
+}
+
+form>div>input {
+    height: 98%;
+    width: 99%;
+    font-size: 1.2em;
+    padding-left: 20px;
+}
+
+form>div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 20px;
+    width: 100%;
+    height: 100%;
+    max-width: 50%;
+    border: 2px solid black;
+    position: relative;
+    /* 추가 */
+}
+
+button {
+    position: absolute;
+    /* 추가 */
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+    background: none;
+    font-size: 1.6em;
+    color: #2192FF;
+}
+
+button:hover {
+    background-color: #2192FF;
+    cursor: pointer;
+    /* 추가 */
+    color: white;
+}
