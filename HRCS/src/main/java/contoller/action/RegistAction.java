@@ -24,18 +24,20 @@ public class RegistAction implements Action {
 		UserDao userDao = UserDao.getInstance();
 		
 		UserDto userDto = new UserDto(id, password, name);
-		if(userDao.duplId(id) && userDao.createUser(userDto)) {
-				System.out.println("회원가입액션 성공");
-				response.sendRedirect("login");
+		if(userDao.duplId(id)) {
+					System.out.println("아이디중복아님");
+			if(userDao.createUser(userDto)) {
+				request.setAttribute("registSuccess", true);
+				request.getRequestDispatcher("login").forward(request, response);
+				}else {
+					System.out.println("회원가입실패");
+				}
 		} else {
+			System.out.println("아이디중복");
 			System.out.println("회원가입액션 실패");
-			request.setAttribute("fail", true);
+			request.setAttribute("duplId", true);
 			request.getRequestDispatcher("regist").forward(request, response);
-			
-//			 regist.jsp 에서 
-//			 request.getAttribute("fail") <- (Boolean) false 이면 -> alert() 
 			
 		}
 	}
-
 }

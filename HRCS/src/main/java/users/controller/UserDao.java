@@ -5,6 +5,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Timestamp;
+import java.util.ArrayList;
 
 import users.User;
 import users.UserDto;
@@ -46,6 +47,7 @@ public class UserDao {
 
 				this.pstmt.execute();
 				System.out.println("회원가입 성공");
+				check = true;
 			} catch (SQLException e) {
 				e.printStackTrace();
 				System.out.println("회원가입 실패");
@@ -69,9 +71,9 @@ public class UserDao {
 				pstmt.setString(1, id);
 				rs = pstmt.executeQuery();
 				if (rs.next()) {
-					check = true;
-				} else {
 					check = false;
+				} else {
+					check = true;
 				}
 			} catch (SQLException e) {
 				// TODO Auto-generated catch block
@@ -119,5 +121,40 @@ public class UserDao {
 
 		return user;
 	}
+	
+	public ArrayList<User> getAllUser(){
+		ArrayList<User> list = new ArrayList<>();
+		User user = null;
+		this.conn = DBManager.getConnectionFromMySql();
+		
+		if(this.conn != null) {
+			String sql = "SELECT * FROM client";
+			try {
+				this.pstmt =conn.prepareStatement(sql);
+				this.rs = this.pstmt.executeQuery();
+				
+				while(this.rs.next()) {
+					String id = this.rs.getString(1);
+					String pw = this.rs.getString(2);
+					String name = this.rs.getString(3);
+					Timestamp reservation_date = this.rs.getTimestamp(4);
+					Timestamp return_date = this.rs.getTimestamp(5);
+					Timestamp reg_date = this.rs.getTimestamp(6);
+					user = new User(id, pw, name, reservation_date, return_date, reg_date);
+					list.add(user);
+					
+				}
+			} catch (SQLException e) {
+				e.printStackTrace();
+			} finally {
+				DBManager.close(conn, pstmt, rs);
+			}
+			
+		}
+		
+		
+		return list;
+	}
+	
 
 }

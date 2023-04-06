@@ -10,8 +10,8 @@ body {
     display: grid;
     grid-template-rows: 200px 50px 1fr 200px;
     grid-template-areas: "header" "nav" "section" "footer";
-    width: 90vw;
-    height: 1000px;
+    width: 100vw;
+    height: 100vh;
     margin: 0 auto;
 }
 
@@ -38,12 +38,6 @@ nav {
     ;
 }
 
-nav>a:hover{
-	background-color: #2192FF;
-    cursor: pointer;
-    /* 추가 */
-    color: white;
-}
 nav>div:first-child>a:not(a:first-child) {
     padding-left: 40px;
 }
@@ -83,8 +77,8 @@ section {
     height: 100%;
     background-color: aliceblue;
     color: black;
-    border-top: 2px solid #2192FF;
-    border-bottom: 2px solid #2192FF;
+    border-top: 2px solid #6F38C5;
+    border-bottom: 2px solid #6F38C5;
 }
 
 section>h1 {
@@ -107,8 +101,8 @@ form>span {
 form>div>input {
     height: 98%;
     width: 99%;
-    font-size: 1.2em;
-    padding-left: 20px;
+    font-size: 1.5em;
+    padding-left: 2s0px;
 }
 
 form>div {
@@ -144,4 +138,64 @@ button:hover {
     cursor: pointer;
     /* 추가 */
     color: white;
+}
+
+section>div:first-child{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+     height: 90%;
+
+}
+section>div>article:first-child{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 20%;
+}
+section>div>article:first-child>div{
+    border-bottom: 2px solid #6F38C5;
+}
+section>div>article:first-child>div>a{
+font-size: 1.2em;
+color: #2192FF;
+padding-left: 10px;
+}
+
+section>div>article:last-child{
+    width: 80%;
+    text-align: center;
+}
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+  }
+  
+  th, td {
+    padding: 8px;
+    text-align: left;
+    border-top: 1px solid #2192FF;
+    border-bottom: 1px solid #2192FF;
+    font-size:1.2em;
+  }
+  td:not(last-child) {
+  border-right: 1px solid #2192FF;
+  }
+  th {
+    background-color: #f2f2f2;
+    font-weight: bold;
+  }
+  
+  div>article:last-child>div:last-child {
+  overflow: auto; 
+  height: 82%;
+}
+
+::-webkit-scrollbar {
+  width: 0px;
+  background: transparent;
+}
+div>article:last-child>div:first-child>h2{
+	font-size: 2.4em;
 }

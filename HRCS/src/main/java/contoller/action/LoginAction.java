@@ -29,7 +29,8 @@ public class LoginAction implements Action{
 		if(pw.equals(tempPw)) {
 			System.out.println("로그인성공");
 			session.setAttribute("sessionId", id);
-			response.sendRedirect("/");
+			request.setAttribute("loginSuccess", true);
+			request.getRequestDispatcher("/").forward(request, response);
 		} else {
 			System.out.println("로그인 실패");
 			request.setAttribute("fail", true);
