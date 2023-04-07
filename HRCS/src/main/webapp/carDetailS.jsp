@@ -11,10 +11,9 @@
 </head>
 <jsp:include page="/header"></jsp:include>
 <body>
-	<% String carNum = request.getParameter("carNum");
-System.out.print(carNum);
+	<% String vehicle_id = request.getParameter("vehicle_id");
 VehicleDao vehicleDao = VehicleDao.getInstance();
-Vehicle vehicle = vehicleDao.getVehicleByCarNum(carNum);
+Vehicle vehicle = vehicleDao.getVehicleById(vehicle_id);
 %>
 	<section>
 		<div>
@@ -30,10 +29,10 @@ Vehicle vehicle = vehicleDao.getVehicleByCarNum(carNum);
 				</div>
 				<div>
 					<table>
-						<thead>
+					<thead>
 							<tr>
 								<td colspan="4" rowspan="4" style="text-align: center;"><img
-								 style="width auto;  max-height: 500px;"	src="/resources/carImg/<%=carNum%>.jpeg"></td>
+								 style="width auto;  max-height: 500px;"	src="/resources/carImg/<%=vehicle.getName()%>.jpeg"></td>
 							</tr>
 						</thead>
 

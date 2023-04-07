@@ -203,4 +203,26 @@
 		<url-pattern>/board_write</url-pattern>
 	</servlet-mapping>
 	
+	
+	<servlet>
+		<servlet-name>mCarList</servlet-name>
+		<jsp-file>/mCarList.jsp</jsp-file>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>mCarList</servlet-name>
+		<url-pattern>/mCarList</url-pattern>
+	</servlet-mapping>
+	
+	
+	<servlet>
+		<servlet-name>vCarList</servlet-name>
+		<jsp-file>/vCarList.jsp</jsp-file>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>vCarList</servlet-name>
+		<url-pattern>/vCarList</url-pattern>
+	</servlet-mapping>
+	
+	
+	
 </web-app>

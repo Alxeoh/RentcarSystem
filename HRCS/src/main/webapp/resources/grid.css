@@ -88,6 +88,7 @@ section {
     color: black;
     border-top: 2px solid #6F38C5;
     border-bottom: 2px solid #6F38C5;
+    min-height:500px;
 }
 
 section>h1 {
@@ -199,7 +200,6 @@ table {
   div>article:last-child>div:last-child {
   overflow: auto; 
   height: 82%;
-  
 }
 
 ::-webkit-scrollbar {
@@ -208,4 +208,9 @@ table {
 }
 div>article:last-child>div:first-child>h2{
 	font-size: 2.4em;
+}
+
+img {
+  max-height: 100%; 
+  height: auto; 
 }

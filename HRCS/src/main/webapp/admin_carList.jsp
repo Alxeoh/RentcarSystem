@@ -43,6 +43,7 @@ if(!id.equals("admin")){
 								<td>등록번호</td>
 								<td>차량번호</td>
 								<td>차종</td>
+								<td>배치지역</td>
 								<td>총 주행시간</td>
 							</tr>
 						</thead>
@@ -56,6 +57,7 @@ if(!id.equals("admin")){
 								<td><a href="admin_modifyCar?vehicle_id=<%=list.get(i).getId()%>"><%=list.get(i).getId()%></a></td>
 								<td><%=list.get(i).getNumber()%></td>
 								<td><%=list.get(i).getName()%></td>
+								<td><%=list.get(i).getLocation()%></td>
 								<td><%=list.get(i).getHourRate()%></td>
 							</tr>
 						</tbody>

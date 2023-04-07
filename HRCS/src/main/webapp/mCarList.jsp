@@ -17,7 +17,7 @@
 		<div>
 			<article>
 				<div>
-					<a href="shortTerm">소형차</a>
+					<a href="admin_carList">소형차</a>
 				</div>
 				<div>
 					<a href="mCarList">중형차</a>
@@ -28,7 +28,7 @@
 			</article>
 			<article>
 				<div>
-					<h2>단기렌트 소형차 List</h2>
+					<h2>중형차 List</h2>
 				</div>
 				<div>
 					<table>
@@ -42,7 +42,7 @@
 						</thead>
 						<%
 						VehicleDao vehicleDao = VehicleDao.getInstance();
-						ArrayList<Vehicle> list = vehicleDao.getVehicleType("S");
+						ArrayList<Vehicle> list = vehicleDao.getVehicleType("M");
 						for (int i = 0; i < list.size(); i++) {
 						%>
 						<tbody>

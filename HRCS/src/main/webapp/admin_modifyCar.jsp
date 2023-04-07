@@ -10,13 +10,13 @@
 <jsp:include page="/header"></jsp:include>
 <body>
 	<%
-String id = (String) session.getAttribute("sessionId");
-if(!id.equals("admin")){
-	System.out.println("관리자계정만 이용가능");
-	request.setAttribute("notAdmin", true);
-	request.getRequestDispatcher("/").forward(request, response);
-}
-%>
+	String id = (String) session.getAttribute("sessionId");
+	if (!id.equals("admin")) {
+		System.out.println("관리자계정만 이용가능");
+		request.setAttribute("notAdmin", true);
+		request.getRequestDispatcher("/").forward(request, response);
+	}
+	%>
 	<%
 	String vehicle_id = request.getParameter("vehicle_id");
 	%>
@@ -41,7 +41,7 @@ if(!id.equals("admin")){
 					<form method="post" action="../service">
 						<input type="hidden" name="command" value="modify">
 						<div>
-							<input type="text" id="id" name="id" value="<%= vehicle_id%>"
+							<input type="text" id="id" name="id" value="<%=vehicle_id%>"
 								readonly>
 						</div>
 						<div>
@@ -54,6 +54,10 @@ if(!id.equals("admin")){
 						<div>
 							<input type="number" id="hourRate" name="hourRate" value="0"
 								readonly>
+						</div>
+						<div>
+							<input type="text" id="location" name="location"
+								placeholder="배차지역을 입력하세요.">
 						</div>
 						<div>
 							<button type="button" onclick="checkValues(form)">수정</button>

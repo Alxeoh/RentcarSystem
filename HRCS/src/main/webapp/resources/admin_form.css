@@ -10,7 +10,7 @@
 
 body {
 	display: grid;
-	grid-template-rows: 200px 50px 2fr 200px;
+	grid-template-rows: 200px 50px auto 200px;
 	grid-template-areas: "header" "nav" "section" "footer";
 	width: 90vw;
 	height: 100vh;
@@ -79,6 +79,7 @@ section {
 	color: black;
 	border-top: 2px solid #2192FF;
 	border-bottom: 2px solid #2192FF;
+	min-height:500px;
 }
 
 section>h1 {
@@ -245,5 +246,9 @@ textarea {
 
 .tittle {
 	width:100%;
+}
+img {
+  max-height: 100%; 
+  height: auto; 
 }
 

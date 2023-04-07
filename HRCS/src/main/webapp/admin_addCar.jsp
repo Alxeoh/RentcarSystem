@@ -52,6 +52,10 @@
 								readonly>
 						</div>
 						<div>
+							<input type="text" id="location" name="location"
+								placeholder="배차지역을 입력하세요.">
+						</div>
+						<div>
 							<button type="button" onclick="checkValues(form)">등록</button>
 						</div>
 						<div>

@@ -10,25 +10,25 @@ import controller.Action;
 import vehicle.VehicleDto;
 import vehicle.controller.VehicleDao;
 
-public class ModifyAction implements Action{
+public class ModifyAction implements Action {
 
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		System.out.println("modifyd액션 활성화");
-		
+
 		String id = request.getParameter("id");
 		String number = request.getParameter("number");
 		String name = request.getParameter("name");
 		int hourRate = Integer.parseInt(request.getParameter("hourRate"));
-		
-		VehicleDto vehicleDto = new VehicleDto(id, number, name, hourRate);
+		String location = request.getParameter("location");
+		VehicleDto vehicleDto = new VehicleDto(id, number, name, hourRate, location);
 		VehicleDao vehicleDao = VehicleDao.getInstance();
-		
-		if(vehicleDto != null ) {
+
+		if (vehicleDto != null) {
 			vehicleDao.modifyVehicle(vehicleDto);
 			response.sendRedirect("admin_carList");
 		}
-		
+
 	}
 
 }

@@ -8,20 +8,23 @@ public class VehicleDto {
 	private String name;
 	private String rentalable;
 	private int hourRate;
+	private String location;
 	
-	public VehicleDto(String id, String number, String name, String rentalable, int hourRate) {
+	public VehicleDto(String id, String number, String name, String rentalable, int hourRate, String location) {
 		this.id = id;
 		this.number = number;
 		this.name = name;
 		this.hourRate = hourRate;
 		this.rentalable = rentalable;
+		this.location = location;
 	}
 	
-	public VehicleDto(String id, String number, String name, int hourRate) {
+	public VehicleDto(String id, String number, String name, int hourRate, String location) {
 		this.id = id;
 		this.number = number;
 		this.name = name;
 		this.hourRate = hourRate;
+		this.location = location;
 	}
 
 	public String getId() {
@@ -43,7 +46,11 @@ public class VehicleDto {
 	public int getHourRate() {
 		return this.hourRate;
 	}
-
+	
+	public String getLocation() {
+		return this.location;
+	}
+	
 	public void setId(String id) {
 		this.id = id;
 	}
@@ -62,6 +69,10 @@ public class VehicleDto {
 
 	public void setHourRate(int hourRate) {
 		this.hourRate = hourRate;
+	}
+	
+	public void setLocation(String location) {
+		this.location = location;
 	}
 	
 	
