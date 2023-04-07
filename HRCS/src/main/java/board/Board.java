@@ -20,6 +20,16 @@ public class Board {
 		this.m_date = m_date;
 		this.w_date = w_date;
 	}
+	
+	public Board(int no, String type, String title, String contents, Timestamp m_date, Timestamp w_date) {
+		this.no = no;
+		this.type = type;
+		this.title = title;
+		this.contents = contents;
+		this.m_date = m_date;
+		this.w_date = w_date;
+	}
+	
 
 	public int getNo() {
 		return this.no;

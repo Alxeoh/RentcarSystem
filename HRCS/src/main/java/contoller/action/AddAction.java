@@ -19,9 +19,10 @@ public class AddAction implements Action{
 		String id = request.getParameter("id");
 		String number = request.getParameter("number");
 		String name = request.getParameter("name");
+		String rentalable = "1";
 		int hourRate = Integer.parseInt(request.getParameter("hourRate"));
 		
-		VehicleDto vehicleDto = new VehicleDto(id, number, name, hourRate);
+		VehicleDto vehicleDto = new VehicleDto(id, number, name, rentalable, hourRate);
 		VehicleDao vehicleDao = VehicleDao.getInstance();
 		
 		if(vehicleDto != null ) {

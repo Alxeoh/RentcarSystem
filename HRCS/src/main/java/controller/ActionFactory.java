@@ -1,8 +1,11 @@
 package controller;
 
+import contoller.action.AddAction;
 import contoller.action.LoginAction;
 import contoller.action.LogoutAction;
+import contoller.action.ModifyAction;
 import contoller.action.RegistAction;
+import contoller.action.WriteAction;
 
 public class ActionFactory {
 
@@ -23,8 +26,13 @@ public class ActionFactory {
 				action = new LoginAction();
 			} else if(command.equals("logout")){
 				action = new LogoutAction();
+			} else if(command.equals("modify")) {
+				action = new ModifyAction();
+			} else if(command.equals("add")) {
+				action = new AddAction();
+			} else if(command.equals("write")) {
+				action = new WriteAction();
 			}
-			
 			return action;
 		}
 }

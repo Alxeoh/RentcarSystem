@@ -17,10 +17,10 @@ body {
 
 header {
     display: flex;
-    background-color: aliceblue;
+    background-color: #2192FF;
     justify-content: center;
     align-items: center;
-    color: #6F38C5;
+    border-bottom: 1px solid white;
 }
 
 header>h1 {
@@ -30,7 +30,7 @@ header>h1 {
 nav {
     display: flex;
     justify-content: space-between;
-    background-color: aliceblue;
+    background-color: #2192FF;
     padding-right: 40px;
     padding-left: 40px;
     align-items: center;
@@ -52,16 +52,25 @@ nav>div:last-child>a {
 
 a {
     text-decoration: none;
-    cursor: pointer;
-    color: #2192FF;
+	cursor: pointer;
+	color: #2192FF;
 }
+
+h1>a,
+nav>div>a {
+    text-decoration: none;
+    cursor: pointer;
+    color: white;
+}
+
 
 footer {
     font-size: 20px;
-    background-color: #98A8F8;
+    background-color: black;
     text-align: center;
     padding-top: 30px;
-    color: #EAFDFC;
+    color: white;
+    border-top: 1px solid white;
 }
 
 input[type="text"]::placeholder {
@@ -190,6 +199,7 @@ table {
   div>article:last-child>div:last-child {
   overflow: auto; 
   height: 82%;
+  
 }
 
 ::-webkit-scrollbar {

@@ -32,13 +32,14 @@ public class VehicleDao {
 		Vehicle vehicle = new Vehicle(vehicleDto);
 		this.conn = DBManager.getConnectionFromMySql();
 		if(conn != null) {
-			String sql = "INSERT INTO vehicle VALUES (?, ?, ?,?)";
+			String sql = "INSERT INTO vehicle VALUES (?,?,?,?,?)";
 			try {
 				this.pstmt = conn.prepareStatement(sql);
 				this.pstmt.setString(1, vehicle.getId());
 				this.pstmt.setString(2, vehicle.getNumber());
 				this.pstmt.setString(3, vehicle.getName());
-				this.pstmt.setInt(4, vehicle.getHourRate());
+				this.pstmt.setString(4, vehicle.getRentalable());
+				this.pstmt.setInt(5, vehicle.getHourRate());
 				this.pstmt.execute();
 				System.out.println("차량등록 성공");
 				check = true;
@@ -69,8 +70,9 @@ public class VehicleDao {
 					String id = this.rs.getString(1);
 					String number = this.rs.getString(2);
 					String name = this.rs.getString(3);
-					int hourRate = this.rs.getInt(4);
-					Vehicle vehicle = new Vehicle(id, number, name, hourRate);
+					String rentalable = this.rs.getString(4);
+					int hourRate = this.rs.getInt(5);
+					Vehicle vehicle = new Vehicle(id, number, name, rentalable, hourRate);
 					list.add(vehicle);
 				}
 			} catch (SQLException e) {
@@ -82,6 +84,41 @@ public class VehicleDao {
 		}
 
 		return list;
+	}
+	
+	public Vehicle getVehicleByCarNum(String carNum) {
+		Vehicle vehicle = null;
+		
+		this.conn = DBManager.getConnectionFromMySql();
+		if(this.conn != null) {
+			
+			String sql = "SELECT * FROM vehicle WHERE number=?";
+			try {
+				this.pstmt = conn.prepareStatement(sql);
+				this.pstmt.setString(1, carNum);
+				this.rs = this.pstmt.executeQuery();
+				
+				this.rs.next();
+				
+				String vehicle_id = rs.getString(1);
+				String number = rs.getString(2);
+				String name = rs.getString(3);
+				String rentalable = rs.getString(4);
+				int hourRate = rs.getInt(5);
+				
+				vehicle = new Vehicle(vehicle_id, number, name, rentalable, hourRate);
+				
+			} catch (SQLException e) {
+				e.printStackTrace();
+			} finally {
+				DBManager.close(conn, pstmt, rs);
+			}
+			
+		}
+		
+		
+		
+		return vehicle;
 	}
 	
 	
@@ -106,6 +143,8 @@ public class VehicleDao {
 				check = true;
 			} catch (SQLException e) {
 				e.printStackTrace();
+			} finally {
+				DBManager.close(conn, pstmt);
 			}
 		}
 		return check;

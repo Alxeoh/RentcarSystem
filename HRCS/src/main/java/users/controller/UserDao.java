@@ -156,5 +156,24 @@ public class UserDao {
 		return list;
 	}
 	
+	//d
+	
+	public void deleteUserById(String id) {
+		this.conn = DBManager.getConnectionFromMySql();
+		
+		if(this.conn != null) {
+			String sql = "DELETE FROM client WHERE client_id=?";
+			try {
+				this.pstmt = conn.prepareStatement(sql);
+				this.pstmt.setString(1, id);
+				this.pstmt.execute();
+				System.out.println("회원삭제완료");
+			} catch (SQLException e) {
+				e.printStackTrace();
+			} finally {
+				DBManager.close(conn, pstmt);
+			}
+		}
+	}
 
 }
