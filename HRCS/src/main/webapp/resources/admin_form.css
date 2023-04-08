@@ -1,14 +1,14 @@
 @charset "UTF-8";
 
 @import
-	url('https://fonts.googleapis.com/css2?family=Nanum+Myeongjo:wght@700&display=swap')
+	url('https://fonts.googleapis.com/css2?family=Jua&family=Nanum+Myeongjo:wght@700&display=swap')
 	;
 
 * {
 	margin: 0;
 	padding: 0;
 	list-style: none;
-	font-family: 'Nanum Myeongjo', serif;
+	font-family: 'Jua', sans-serif;
 }
 
 body {
@@ -41,8 +41,7 @@ nav {
 	padding-right: 40px;
 	padding-left: 40px;
 	align-items: center;
-	font-size: 1.2em;
-	;
+	font-size: 1.2em;;
 	height: fix-content;
 }
 
@@ -193,7 +192,6 @@ th, td {
 	border: 1px solid #2192FF;
 	font-size: 1.2em;
 }
-
 
 th {
 	background-color: #f2f2f2;

@@ -1,3 +1,4 @@
+<%@page import="java.text.DecimalFormat"%>
 <%@page import="booking.Booking"%>
 <%@page import="booking.controller.BookingDao"%>
 <%@page import="booking.BookingDto"%>
@@ -16,6 +17,7 @@
 <jsp:include page="/header"></jsp:include>
 <body>
 	<%
+	DecimalFormat df = new DecimalFormat("#,###");
 	Boolean rentalSuccess = (Boolean) request.getAttribute("rentalSuccess");
 	if (rentalSuccess != null && rentalSuccess) {
 	%>
@@ -83,7 +85,7 @@
 								<td>차종</td>
 								<td>대여장소</td>
 								<td>이용요금</td>
-								<td>렌탈일시</td>
+								<td>렌트일시</td>
 								<td>반납일시</td>
 								<td>예약일시</td>
 							</tr>
@@ -97,15 +99,23 @@
 							<tr>
 								<td><%=list.get(i).getBook_code()%></td>
 								<td><%=list.get(i).getVehicle_id()%></td>
-								<td><%=list.get(i).getLocation_id()%></td>
-								<td><%=list.get(i).getCost()%>원</td>
+								<td>
+								<%if(list.get(i).getLocation_id().equals("seo1")){%>
+								잠실<%}%><%else if(list.get(i).getLocation_id().equals("seo2")){%>
+								명동<%}%><%else if(list.get(i).getLocation_id().equals("seo3")){%>
+								강남<%}%><%else if(list.get(i).getLocation_id().equals("seo4")){%>
+								서초<%}%><%else if(list.get(i).getLocation_id().equals("seo5")){%>
+								강동<%}%>
+								
+								</td>
+								
+								<td><%String formatted = df.format(list.get(i).getCost()); %><%=formatted%>원</td>
 								<td><%=list.get(i).getReservation_date()%></td>
 								<td><%=list.get(i).getReturn_date()%></td>
 								<td><%=list.get(i).getReg_date()%></td>
 							</tr>
 							<%
-							}
-							}
+							}}
 							%>
 						</thead>
 					</table>

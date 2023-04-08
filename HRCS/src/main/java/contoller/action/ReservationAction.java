@@ -78,17 +78,21 @@ public class ReservationAction implements Action {
 		System.out.println("reservation: " + reservation);
 		System.out.println("re_turn: " + re_turn);
 		VehicleDao vehicleDao = VehicleDao.getInstance();
-		vehicleDao.setRentalable(vehicle_id);
 		Vehicle vehicle = vehicleDao.getVehicleById(vehicle_id);
 		BookingDto bookingDto = new BookingDto(book_code, vehicle_id, client_id, location_id, cost, reservation,
 				re_turn);
+		System.out.println(vehicle.getRentalable());
 		
 		
 		if(vehicle.getRentalable().equals("2")) {
 			request.setAttribute("alreadyRent", true);
 			request.getRequestDispatcher("shortTerm").forward(request, response);
+		} else if(cost == 0) {
+			request.setAttribute("lack", true);
+			request.getRequestDispatcher("shortTerm").forward(request, response);
 		}else {
 			bookingDao.createBooking(bookingDto);
+			vehicleDao.setRentalable(vehicle_id); 
 			request.setAttribute("rentalSuccess", true);
 			request.getRequestDispatcher("mypage").forward(request, response);
 		}
