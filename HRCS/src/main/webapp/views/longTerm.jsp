@@ -101,18 +101,7 @@ String location = request.getParameter("location");
 							%>
 						</div>
 						<div>
-							<%
-							String log = (String) session.getAttribute("sessionId");
-							if (log != null && !log.equals("로그인 상태가 아닙니다.")) {
-							%>
-							<a type="button" type="button" href="board_write">예약하기</a>
-							<%
-							} else {
-							%>
 							<a type="button" type="button" href="/">뒤로가기</a>
-							<%
-							}
-							%>
 						</div>
 					</div>
 					<div>

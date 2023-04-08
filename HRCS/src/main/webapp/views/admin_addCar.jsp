@@ -40,13 +40,8 @@ if(addCar != null && addCar){
 						</div>
 					</div>
 					<div>
-					<script>
-							function submitForm() {
-								document.getElementById("myForm").submit();
-							}
-						</script>
 						<div>
-							<a href="#" onclick="submitForm()">등록하기</a>
+							<a type="button" onclick="checkValues(document.getElementById('myForm'))">등록하기</a>
 						</div>
 						<div>
 							<a type="button" href="/">뒤로가기</a>

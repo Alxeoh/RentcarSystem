@@ -1,6 +1,9 @@
 @charset "UTF-8";
 
-@import url('https://fonts.googleapis.com/css2?family=Nanum+Myeongjo:wght@700&display=swap');
+@import
+	url('https://fonts.googleapis.com/css2?family=Nanum+Myeongjo:wght@700&display=swap')
+	;
+
 * {
 	margin: 0;
 	padding: 0;
@@ -10,11 +13,12 @@
 
 body {
 	display: grid;
-	grid-template-rows: 200px 50px 1fr 200px;
+	grid-template-rows: 200px 50px 1fr 100px;
 	grid-template-areas: "header" "nav" "section" "footer";
-	width: 100vw;
-	height: 100vh;
+	width: 90vw;
+	height: 50vh;
 	margin: 0 auto;
+	height: fix-content;
 }
 
 header {
@@ -23,6 +27,7 @@ header {
 	justify-content: center;
 	align-items: center;
 	border-bottom: 1px solid white;
+	height: fix-content;
 }
 
 header>h1 {
@@ -38,6 +43,7 @@ nav {
 	align-items: center;
 	font-size: 1.2em;
 	;
+	height: fix-content;
 }
 
 nav>div:first-child>a:not(a:first-child) {
@@ -76,7 +82,7 @@ footer {
 	text-align: center;
 	padding-top: 30px;
 	color: white;
-	border-top: 1px solid white;
+	height: fix-content;
 }
 
 input[type="text"]::placeholder {
@@ -88,11 +94,10 @@ section {
 	flex-direction: column;
 	align-items: center;
 	justify-content: center;
-	height: 100%;
-	background-color: aliceblue;
-	color: black;
-	border-top: 2px solid #2192FF;
-	border-bottom: 2px solid #2192FF;
+	height: 100vh;
+	background-color: white;
+	border-top: 1px solid white;
+	border-bottom: 1px solid white;
 	min-height: 500px;
 }
 
@@ -155,13 +160,6 @@ button:hover {
 	color: white;
 }
 
-section>div:first-child {
-	display: flex;
-	flex-direction: row;
-	width: 100%;
-	height: 90%;
-}
-
 section>div>article:first-child {
 	display: flex;
 	flex-direction: column;
@@ -192,14 +190,10 @@ table {
 th, td {
 	padding: 8px;
 	text-align: left;
-	border-top: 1px solid #2192FF;
-	border-bottom: 1px solid #2192FF;
+	border: 1px solid #2192FF;
 	font-size: 1.2em;
 }
 
-td:not(last-child) {
-	border-right: 1px solid #2192FF;
-}
 
 th {
 	background-color: #f2f2f2;
@@ -263,6 +257,9 @@ section>div {
 	display: flex;
 	justify-content: center;
 	height: 100%;
+	flex-direction: row;
+	width: 100%;
+	height: 100%;
 }
 
 textarea {
@@ -275,8 +272,8 @@ textarea {
 	width: 100%;
 }
 
-img {
-	max-height: 100%;
+section>img {
+	width: 100%;
 	height: auto;
 }
 

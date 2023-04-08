@@ -6,6 +6,7 @@ import contoller.action.LoginAction;
 import contoller.action.LogoutAction;
 import contoller.action.CarModifyAction;
 import contoller.action.RegistAction;
+import contoller.action.ReservationAction;
 import contoller.action.WriteAction;
 
 public class ActionFactory {
@@ -35,6 +36,8 @@ public class ActionFactory {
 				action = new WriteAction();
 			} else if(command.equals("board_modify")) {
 				action = new BoardModifyAction();
+			} else if(command.equals("reservation")){
+				action = new ReservationAction();
 			}
 			return action;
 		}

@@ -1,10 +1,10 @@
 function checkValues(htmlForm){
-	let url = "modify?";
+	let url = "admin_addCar?";
 	
 	const id = document.getElementById("id").value;
 	const number = document.getElementById("number").value;
 	const name = document.getElementById("name").value;
-	const hourRate = document.getElementById("hourRate").value;
+	const location = document.getElementById("location").value;
 	
 	let check = true;
 	
@@ -17,8 +17,8 @@ function checkValues(htmlForm){
 	} else if (name === ""){
 		alert('차종이 입력되지 않았습니다.')
 		check = false;
-	} else if (hourRate === ""){
-		alert('주행시간이 입력되지 않았습니다.')
+	} else if (location === ""){
+		alert('배차지역이 입력되지 않았습니다.')
 		check = false;
 	}
 		console.log(check);

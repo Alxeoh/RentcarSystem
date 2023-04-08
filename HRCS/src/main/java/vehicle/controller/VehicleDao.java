@@ -256,5 +256,27 @@ public class VehicleDao {
 		}
 		return check;
 	}
+	public boolean setRentalable(String vehicle_id) {
+		boolean check = false;
+
+		this.conn = DBManager.getConnectionFromMySql();
+		if (this.conn != null) {
+			String sql = "UPDATE vehicle SET rentalable='2' Where vehicle_id =?";
+
+			try {
+				this.pstmt = this.conn.prepareStatement(sql);
+				this.pstmt.setString(1, vehicle_id);
+
+				this.pstmt.execute();
+				System.out.println("렌탈중 변경완료");
+				check = true;
+			} catch (SQLException e) {
+				e.printStackTrace();
+			} finally {
+				DBManager.close(conn, pstmt);
+			}
+		}
+		return check;
+	}
 
 }

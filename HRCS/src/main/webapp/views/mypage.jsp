@@ -1,3 +1,6 @@
+<%@page import="booking.Booking"%>
+<%@page import="booking.controller.BookingDao"%>
+<%@page import="booking.BookingDto"%>
 <%@page import="users.User"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="users.controller.UserDao"%>
@@ -12,6 +15,22 @@
 </head>
 <jsp:include page="/header"></jsp:include>
 <body>
+	<%
+	Boolean rentalSuccess = (Boolean) request.getAttribute("rentalSuccess");
+	if (rentalSuccess != null && rentalSuccess) {
+	%>
+	<script>
+		alert('렌탈완료')
+	</script>
+	<%}%>
+	<%
+	Boolean rentalFail = (Boolean) request.getAttribute("rentalFail");
+	if (rentalFail != null && rentalFail) {
+	%>
+	<script>
+		alert('렌탈불가')
+	</script>
+	<%}%>
 	<%
 	String log = (String) session.getAttribute("sessionId");
 	%>
@@ -53,19 +72,41 @@
 							</tr>
 						</tbody>
 					</table>
-					<br><br>
+					<br> <br>
 					<table>
 						<thead>
 							<tr>
-								<th colspan="5">이용내역</th>
+								<th colspan="7">이용내역</th>
 							</tr>
 							<tr>
-								<td>차량번호</td>
+								<td>예약번호</td>
 								<td>차종</td>
-								<td>렌탈일</td>
-								<td>반납일</td>
+								<td>대여장소</td>
 								<td>이용요금</td>
+								<td>렌탈일시</td>
+								<td>반납일시</td>
+								<td>예약일시</td>
 							</tr>
+
+							<%
+							BookingDao bookingDao = BookingDao.getInstance();
+							ArrayList<Booking> list = bookingDao.getBookingListById(log);
+							if (list != null) {
+								for (int i = 0; i < list.size(); i++) {
+							%>
+							<tr>
+								<td><%=list.get(i).getBook_code()%></td>
+								<td><%=list.get(i).getVehicle_id()%></td>
+								<td><%=list.get(i).getLocation_id()%></td>
+								<td><%=list.get(i).getCost()%>원</td>
+								<td><%=list.get(i).getReservation_date()%></td>
+								<td><%=list.get(i).getReturn_date()%></td>
+								<td><%=list.get(i).getReg_date()%></td>
+							</tr>
+							<%
+							}
+							}
+							%>
 						</thead>
 					</table>
 				</div>

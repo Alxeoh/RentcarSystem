@@ -12,6 +12,22 @@
 </head>
 <jsp:include page="/header"></jsp:include>
 <body>
+<%
+	Boolean alreadyRent = (Boolean) request.getAttribute("alreadyRent");
+	if (alreadyRent != null && alreadyRent) {
+	%>
+	<script>
+		alert('이미 대여중인 차량을 예약하실 수 없습니다.')
+	</script>
+	<%}%>
+	<%
+	Boolean lack = (Boolean) request.getAttribute("lack");
+	if (lack != null && lack) {
+	%>
+	<script>
+		alert('최소대여시간은 1시간으로 1시간 미만 대여는 불가능합니다.')
+	</script>
+	<%}%>
 	<%
 VehicleDao vehicleDao = VehicleDao.getInstance();
 String type = request.getParameter("type"); // 파라미터 값 가져오기
@@ -101,18 +117,7 @@ String location = request.getParameter("location");
 							%>
 						</div>
 						<div>
-							<%
-							String log = (String) session.getAttribute("sessionId");
-							if (log != null && !log.equals("로그인 상태가 아닙니다.")) {
-							%>
-							<a type="button" href="board_write">예약하기</a>
-							<%
-							} else {
-							%>
 							<a type="button" href="/">뒤로가기</a>
-							<%
-							}
-							%>
 						</div>
 					</div>
 					<div>
