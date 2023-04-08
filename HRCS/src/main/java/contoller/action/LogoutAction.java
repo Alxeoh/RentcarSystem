@@ -20,7 +20,9 @@ public class LogoutAction implements Action{
 		HttpSession session = request.getSession();
 		session.setAttribute("sessionId", id);
 		System.out.println("로그아웃 완료");
-		response.sendRedirect("/");
+		request.setAttribute("logOut", true);
+		request.getRequestDispatcher("/").forward(request, response);
+		
 	}
 
 }

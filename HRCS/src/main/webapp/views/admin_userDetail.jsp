@@ -6,6 +6,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<link rel="stylesheet" href="resources/admin_form.css">
 <title>Insert title here</title>
 </head>
 <jsp:include page="/header"></jsp:include>
@@ -23,30 +24,34 @@
 	%>
 
 	<section>
-		<div>
-			<article>
+	<div>
+		<article>
+			<div>
 				<div>
-					<a href="admin_carList">렌트카 목록/수정</a>
-				</div>
-				<div>
-					<a href="admin_addCar">렌트카 등록</a>
-				</div>
-				<div>
-					<a href="admin_userM">회원 관리</a>
-				</div>
-			</article>
-			<article>
-				<div>
+					<h2>Menu:&nbsp</h2>
 					<div>
-						<h2>Detail</h2>
+						<a href="admin_carList">렌트카 목록/수정</a>
 					</div>
-
+					<div>
+						<a href="admin_addCar">렌트카 등록</a>
+					</div>
+					<div>
+						<a href="admin_userM">회원 관리</a>
+					</div>
+				</div>
+				<div>
 					<div>
 						<a type="button" href="/admin_userM?delete_id=<%= id%>">회원삭제</a>
 					</div>
+					<div>
+						<a type="button" href="admin_userM">뒤로가기</a>
+					</div>
 				</div>
-				<div>
-					<table>
+			</div>
+			<div>
+				<h2>회원관리</h2>
+				<br>
+				<table>
 						<thead>
 							<tr>
 								<th colspan="4">회원정보</th>
@@ -71,8 +76,7 @@
 							</tr>
 						</tbody>
 					</table>
-					<br>
-					<br>
+					<br> <br>
 					<table>
 						<thead>
 							<tr>
@@ -87,12 +91,10 @@
 							</tr>
 						</thead>
 					</table>
-				</div>
-			</article>
-		</div>
-	</section>
-
-
+			</div>
+		</article>
+	</div>
+</section>
 </body>
 <jsp:include page="/footer"></jsp:include>
 </html>

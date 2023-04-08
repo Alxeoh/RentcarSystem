@@ -1,28 +1,28 @@
 @charset "UTF-8";
 
-@charset "UTF-8";
-
+@import url('https://fonts.googleapis.com/css2?family=Nanum+Myeongjo:wght@700&display=swap');
 * {
 	margin: 0;
 	padding: 0;
 	list-style: none;
+	font-family: 'Nanum Myeongjo', serif;
 }
 
 body {
 	display: grid;
-	grid-template-rows: 200px 50px auto 200px;
+	grid-template-rows: 200px 50px 1fr 200px;
 	grid-template-areas: "header" "nav" "section" "footer";
-	width: 90vw;
+	width: 100vw;
 	height: 100vh;
 	margin: 0 auto;
 }
 
 header {
 	display: flex;
-	background-color: black;
+	background-color: #2192FF;
 	justify-content: center;
 	align-items: center;
-	color: white;
+	border-bottom: 1px solid white;
 }
 
 header>h1 {
@@ -32,7 +32,7 @@ header>h1 {
 nav {
 	display: flex;
 	justify-content: space-between;
-	background-color: aliceblue;
+	background-color: #2192FF;
 	padding-right: 40px;
 	padding-left: 40px;
 	align-items: center;
@@ -51,10 +51,23 @@ nav>div:last-child>a {
 	border-radius: 8px;
 }
 
+nav>div:last-child>a:hover {
+	text-decoration: none;
+	background-color: white;
+	cursor: pointer;
+	color: #2192FF;
+}
+
 a {
 	text-decoration: none;
 	cursor: pointer;
 	color: #2192FF;
+}
+
+h1>a, nav>div>a {
+	text-decoration: none;
+	cursor: pointer;
+	color: white;
 }
 
 footer {
@@ -63,6 +76,7 @@ footer {
 	text-align: center;
 	padding-top: 30px;
 	color: white;
+	border-top: 1px solid white;
 }
 
 input[type="text"]::placeholder {
@@ -74,12 +88,12 @@ section {
 	flex-direction: column;
 	align-items: center;
 	justify-content: center;
-	height: fit-content;
+	height: 100%;
 	background-color: aliceblue;
 	color: black;
 	border-top: 2px solid #2192FF;
 	border-bottom: 2px solid #2192FF;
-	min-height:500px;
+	min-height: 500px;
 }
 
 section>h1 {
@@ -97,14 +111,14 @@ form {
 }
 
 form>span {
-	font-size: 2ems;
+	font-size: 2em;
 }
 
 form>div>input {
 	height: 98%;
 	width: 99%;
 	font-size: 1.5em;
-	padding-left: 2s0px;
+	padding-left: 20px;
 }
 
 form>div {
@@ -121,6 +135,7 @@ form>div {
 
 button {
 	position: absolute;
+	/* 추가 */
 	top: 0;
 	left: 0;
 	right: 0;
@@ -130,20 +145,20 @@ button {
 	border: none;
 	background: none;
 	font-size: 1.6em;
-	color: #22FF;
-	height: fit-content
+	color: #2192FF;
 }
 
 button:hover {
 	background-color: #2192FF;
 	cursor: pointer;
+	/* 추가 */
 	color: white;
 }
 
 section>div:first-child {
 	display: flex;
 	flex-direction: row;
-	width: 98%;
+	width: 100%;
 	height: 90%;
 }
 
@@ -161,12 +176,11 @@ section>div>article:first-child>div {
 section>div>article:first-child>div>a {
 	font-size: 1.2em;
 	color: #2192FF;
+	padding-left: 10px;
 }
 
 section>div>article:last-child {
-	display: flex;
-	flex-direction: column;
-	width: 100%;
+	width: 80%;
 	text-align: center;
 }
 
@@ -178,7 +192,8 @@ table {
 th, td {
 	padding: 8px;
 	text-align: left;
-	border: 1px solid #2192FF;
+	border-top: 1px solid #2192FF;
+	border-bottom: 1px solid #2192FF;
 	font-size: 1.2em;
 }
 
@@ -192,11 +207,8 @@ th {
 }
 
 div>article:last-child>div:last-child {
+	overflow: auto;
 	height: 82%;
-}
-
-div>article:last-child>div:first-child>h2 {
-	font-size: 2.4em;
 }
 
 article>div>form {
@@ -221,11 +233,26 @@ article:first-child>div:first-child {
 	align-items: center;
 }
 
-article:first-child>div:first-child>div:last-child {
+article:first-child>div:first-child>div {
+	display: flex;
+}
+
+article:first-child>div:first-child>div:first-child>div, article:first-child>div:first-child>div>div
+	{
+	display: flex;
+	align-items: center;
 	padding-right: 20px;
 	padding-left: 20px;
 	border: solid 2px #98A8F8;
 	border-radius: 8px;
+}
+
+article:first-child>div:first-child>div:first-child>div:hover, article:first-child>div:first-child>div>div:hover,
+	article:first-child>div:first-child>div:first-child>div:hover a,
+	article:first-child>div:first-child>div>div:hover a {
+	background-color: #2192FF;
+	cursor: pointer;
+	color: white;
 }
 
 article>div:first-child {
@@ -245,10 +272,14 @@ textarea {
 }
 
 .tittle {
-	width:100%;
-}
-img {
-  max-height: 100%; 
-  height: auto; 
+	width: 100%;
 }
 
+img {
+	max-height: 100%;
+	height: auto;
+}
+
+div>article:last-child>div:first-child>h2 {
+	font-size: 2.4em;
+}

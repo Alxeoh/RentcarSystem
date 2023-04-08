@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<link rel="stylesheet" href="resources/grid.css">
+<link rel="stylesheet" href="resources/admin_form.css">
 <title>Insert title here</title>
 </head>
 <jsp:include page="/header"></jsp:include>
@@ -14,6 +14,11 @@
 if(registSeccess != null && registSeccess){
 %>
 <script>alert('회원가입 성공')</script>
+<%} %>
+<%Boolean loginFail = (Boolean) request.getAttribute("fail"); 
+if(loginFail != null && loginFail){
+%>
+	<script>alert('로그인실패, 회원정보를 확인하세요.')</script>
 <%} %>
 <%Boolean alreadyLogout =(Boolean) request.getAttribute("alreadyLogout");
 if(alreadyLogout != null && alreadyLogout){

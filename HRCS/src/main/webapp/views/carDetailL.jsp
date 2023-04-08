@@ -20,7 +20,7 @@ Vehicle vehicle = vehicleDao.getVehicleById(vehicle_id);
 			<article>
 				<div>
 					<div>
-						<h2><a href="longTerm">Reservation</a></h2>
+						<h2><a href="longTerm">LongTerm Reservation</a></h2>
 					</div>
 
 					<div>

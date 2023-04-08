@@ -24,7 +24,7 @@
 
 	<servlet>
 		<servlet-name>header</servlet-name>
-		<jsp-file>/header.jsp</jsp-file>
+		<jsp-file>/views/header.jsp</jsp-file>
 	</servlet>
 	<servlet-mapping>
 		<servlet-name>header</servlet-name>
@@ -33,7 +33,7 @@
 
 	<servlet>
 		<servlet-name>footer</servlet-name>
-		<jsp-file>/footer.jsp</jsp-file>
+		<jsp-file>/views/footer.jsp</jsp-file>
 	</servlet>
 	<servlet-mapping>
 		<servlet-name>footer</servlet-name>
@@ -42,7 +42,7 @@
 
 	<servlet>
 		<servlet-name>login</servlet-name>
-		<jsp-file>/login.jsp</jsp-file>
+		<jsp-file>/views/login.jsp</jsp-file>
 	</servlet>
 	<servlet-mapping>
 		<servlet-name>login</servlet-name>
@@ -51,7 +51,7 @@
 
 	<servlet>
 		<servlet-name>logout</servlet-name>
-		<jsp-file>/logout.jsp</jsp-file>
+		<jsp-file>/views/logout.jsp</jsp-file>
 	</servlet>
 	<servlet-mapping>
 		<servlet-name>logout</servlet-name>
@@ -60,7 +60,7 @@
 
 	<servlet>
 		<servlet-name>regist</servlet-name>
-		<jsp-file>/regist.jsp</jsp-file>
+		<jsp-file>/views/regist.jsp</jsp-file>
 	</servlet>
 	<servlet-mapping>
 		<servlet-name>regist</servlet-name>
@@ -69,7 +69,7 @@
 
 	<servlet>
 		<servlet-name>shortTerm</servlet-name>
-		<jsp-file>/shortTerm.jsp</jsp-file>
+		<jsp-file>/views/shortTerm.jsp</jsp-file>
 	</servlet>
 	<servlet-mapping>
 		<servlet-name>shortTerm</servlet-name>
@@ -78,7 +78,7 @@
 
 	<servlet>
 		<servlet-name>longTerm</servlet-name>
-		<jsp-file>/longTerm.jsp</jsp-file>
+		<jsp-file>/views/longTerm.jsp</jsp-file>
 	</servlet>
 	<servlet-mapping>
 		<servlet-name>longTerm</servlet-name>
@@ -87,7 +87,7 @@
 
 	<servlet>
 		<servlet-name>board</servlet-name>
-		<jsp-file>/board.jsp</jsp-file>
+		<jsp-file>/views/board.jsp</jsp-file>
 	</servlet>
 	<servlet-mapping>
 		<servlet-name>board</servlet-name>
@@ -96,7 +96,7 @@
 
 	<servlet>
 		<servlet-name>mypage</servlet-name>
-		<jsp-file>/mypage.jsp</jsp-file>
+		<jsp-file>/views/mypage.jsp</jsp-file>
 	</servlet>
 	<servlet-mapping>
 		<servlet-name>mypage</servlet-name>
@@ -104,17 +104,8 @@
 	</servlet-mapping>
 
 	<servlet>
-		<servlet-name>admin</servlet-name>
-		<jsp-file>/admin.jsp</jsp-file>
-	</servlet>
-	<servlet-mapping>
-		<servlet-name>admin</servlet-name>
-		<url-pattern>/admin</url-pattern>
-	</servlet-mapping>
-
-	<servlet>
 		<servlet-name>admin_carList</servlet-name>
-		<jsp-file>/admin_carList.jsp</jsp-file>
+		<jsp-file>/views/admin_carList.jsp</jsp-file>
 	</servlet>
 	<servlet-mapping>
 		<servlet-name>admin_carList</servlet-name>
@@ -123,7 +114,7 @@
 
 	<servlet>
 		<servlet-name>admin_addCar</servlet-name>
-		<jsp-file>/admin_addCar.jsp</jsp-file>
+		<jsp-file>/views/admin_addCar.jsp</jsp-file>
 	</servlet>
 	<servlet-mapping>
 		<servlet-name>admin_addCar</servlet-name>
@@ -132,7 +123,7 @@
 
 	<servlet>
 		<servlet-name>admin_userM</servlet-name>
-		<jsp-file>/admin_userM.jsp</jsp-file>
+		<jsp-file>/views/admin_userM.jsp</jsp-file>
 	</servlet>
 	<servlet-mapping>
 		<servlet-name>admin_userM</servlet-name>
@@ -141,7 +132,7 @@
 
 	<servlet>
 		<servlet-name>admin_boardM</servlet-name>
-		<jsp-file>/admin_boardM.jsp</jsp-file>
+		<jsp-file>/views/admin_boardM.jsp</jsp-file>
 	</servlet>
 	<servlet-mapping>
 		<servlet-name>admin_boardM</servlet-name>
@@ -150,7 +141,7 @@
 	
 	<servlet>
 		<servlet-name>admin_modifyCar</servlet-name>
-		<jsp-file>/admin_modifyCar.jsp</jsp-file>
+		<jsp-file>/views/admin_modifyCar.jsp</jsp-file>
 	</servlet>
 	<servlet-mapping>
 		<servlet-name>admin_modifyCar</servlet-name>
@@ -159,7 +150,7 @@
 	
 	<servlet>
 		<servlet-name>board_contents</servlet-name>
-		<jsp-file>/board_contents.jsp</jsp-file>
+		<jsp-file>/views/board_contents.jsp</jsp-file>
 	</servlet>
 	<servlet-mapping>
 		<servlet-name>board_contents</servlet-name>
@@ -168,7 +159,7 @@
 	
 	<servlet>
 		<servlet-name>admin_userDetail</servlet-name>
-		<jsp-file>/admin_userDetail.jsp</jsp-file>
+		<jsp-file>/views/admin_userDetail.jsp</jsp-file>
 	</servlet>
 	<servlet-mapping>
 		<servlet-name>admin_userDetail</servlet-name>
@@ -177,7 +168,7 @@
 	
 	<servlet>
 		<servlet-name>carDetailS</servlet-name>
-		<jsp-file>/carDetailS.jsp</jsp-file>
+		<jsp-file>/views/carDetailS.jsp</jsp-file>
 	</servlet>
 	<servlet-mapping>
 		<servlet-name>carDetailS</servlet-name>
@@ -187,7 +178,7 @@
 	
 	<servlet>
 		<servlet-name>carDetailL</servlet-name>
-		<jsp-file>/carDetailL.jsp</jsp-file>
+		<jsp-file>/views/carDetailL.jsp</jsp-file>
 	</servlet>
 	<servlet-mapping>
 		<servlet-name>carDetailL</servlet-name>
@@ -196,7 +187,7 @@
 	
 	<servlet>
 		<servlet-name>board_write</servlet-name>
-		<jsp-file>/board_write.jsp</jsp-file>
+		<jsp-file>/views/board_write.jsp</jsp-file>
 	</servlet>
 	<servlet-mapping>
 		<servlet-name>board_write</servlet-name>
@@ -205,22 +196,12 @@
 	
 	
 	<servlet>
-		<servlet-name>mCarList</servlet-name>
-		<jsp-file>/mCarList.jsp</jsp-file>
+		<servlet-name>board_modify</servlet-name>
+		<jsp-file>/views/board_modify.jsp</jsp-file>
 	</servlet>
 	<servlet-mapping>
-		<servlet-name>mCarList</servlet-name>
-		<url-pattern>/mCarList</url-pattern>
-	</servlet-mapping>
-	
-	
-	<servlet>
-		<servlet-name>vCarList</servlet-name>
-		<jsp-file>/vCarList.jsp</jsp-file>
-	</servlet>
-	<servlet-mapping>
-		<servlet-name>vCarList</servlet-name>
-		<url-pattern>/vCarList</url-pattern>
+		<servlet-name>board_modify</servlet-name>
+		<url-pattern>/board_modify</url-pattern>
 	</servlet-mapping>
 	
 	

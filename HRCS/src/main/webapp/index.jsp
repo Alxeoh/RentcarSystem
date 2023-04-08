@@ -5,11 +5,18 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<link rel="stylesheet" href="resources/grid.css?after">
+<link rel="stylesheet" href="resources/admin_form.css?after">
 <title>RentCar Service</title>
 </head>
-<jsp:include page="header.jsp"></jsp:include>
+<jsp:include page="/views/header.jsp"></jsp:include>
 <body>
+<%Boolean logOut = (Boolean)request.getAttribute("logOut");
+if(logOut != null && logOut){
+%>
+<script>
+alert('로그아웃 완료');
+</script>
+<% }%>
 	<%
 	Boolean needLogout = (Boolean) request.getAttribute("needLogout");
 	if (needLogout != null && needLogout) {
@@ -63,5 +70,5 @@
 
 
 </body>
-<jsp:include page="footer.jsp"></jsp:include>
+<jsp:include page="/views/footer.jsp"></jsp:include>
 </html>

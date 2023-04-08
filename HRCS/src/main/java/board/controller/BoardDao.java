@@ -50,7 +50,7 @@ public class BoardDao {
 
 	public boolean CreateBoard(String type, String id, String title, String content) {
 		boolean check = false;
-		int no = getCount()+1;
+		int no = getCount() + 1;
 		this.conn = DBManager.getConnectionFromMySql();
 		if (this.conn != null) {
 			String sql = "INSERT INTO board(no, type, client_id, title, contents) VALUES(?, ?, ?, ?, ?);";
@@ -61,7 +61,7 @@ public class BoardDao {
 				this.pstmt.setString(3, id);
 				this.pstmt.setString(4, title);
 				this.pstmt.setString(5, content);
-				
+
 				this.pstmt.execute();
 				check = true;
 				System.out.println("게시글 작성완료");
@@ -84,6 +84,39 @@ public class BoardDao {
 			String sql = "SELECT * FROM board";
 			try {
 				this.pstmt = conn.prepareStatement(sql);
+				this.rs = this.pstmt.executeQuery();
+
+				while (this.rs.next()) {
+					int no = rs.getInt(1);
+					String type = rs.getString(2);
+					String id = rs.getString(3);
+					String title = rs.getString(4);
+					String contents = rs.getString(5);
+					Timestamp m_date = rs.getTimestamp(6);
+					Timestamp w_date = rs.getTimestamp(7);
+
+					Board board = new Board(no, type, id, title, contents, m_date, w_date);
+					list.add(board);
+				}
+			} catch (SQLException e) {
+				e.printStackTrace();
+			} finally {
+				DBManager.close(conn, pstmt, rs);
+			}
+		}
+
+		return list;
+	}
+
+	public ArrayList<Board> getMyBoard(String myId) {
+		ArrayList<Board> list = new ArrayList<>();
+
+		this.conn = DBManager.getConnectionFromMySql();
+		if (this.conn != null) {
+			String sql = "SELECT * FROM board WHERE client_id=?";
+			try {
+				this.pstmt = conn.prepareStatement(sql);
+				this.pstmt.setString(1, myId);
 				this.rs = this.pstmt.executeQuery();
 
 				while (this.rs.next()) {
@@ -140,6 +173,25 @@ public class BoardDao {
 
 	// u
 
+	public void modifyBoard(String title, String content, int no) {
+		this.conn=DBManager.getConnectionFromMySql();
+		if(this.conn!=null) {
+			String sql = "UPDATE board SET title=?, contents=?, m_date=CURRENT_TIMESTAMP WHERE no=?";
+			try {
+				this.pstmt = this.conn.prepareStatement(sql);
+				this.pstmt.setString(1, title);
+				this.pstmt.setString(2, content);
+				this.pstmt.setInt(3, no);
+				this.pstmt.execute();
+				System.out.println("게시글 수정성공");
+			} catch (SQLException e) {
+				e.printStackTrace();
+			} finally {
+				DBManager.close(conn, pstmt);
+			}
+			
+		}
+	}
 	// d
 
 	public boolean deleteContentsByNo(int no) {

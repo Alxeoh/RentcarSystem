@@ -28,7 +28,8 @@ public class AddAction implements Action {
 
 		if (vehicleDto != null) {
 			vehicleDao.addVehicle(vehicleDto);
-			response.sendRedirect("admin_carList");
+			request.setAttribute("addSuccess", true);
+			request.getRequestDispatcher("admin_addCar").forward(request, response);
 		}
 
 	}

@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<link rel="stylesheet" href="resources/grid.css">
+<link rel="stylesheet" href="resources/admin_form.css">
 <title>Insert title here</title>
 </head>
 <link rel="icon" href="data:;base64,iVBORw0KGgo=">
@@ -30,7 +30,7 @@
 			<%
 			if (id.equals("admin")) {
 			%>
-			<a href="admin">관리자모드</a>
+			<a href="admin_carList">관리자모드</a>
 			<%
 			}
 			}

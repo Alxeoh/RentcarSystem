@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<link rel="stylesheet" href="resources/grid.css">
+<link rel="stylesheet" href="resources/admin_form.css">
 <title>Insert title here</title>
 </head>
 <jsp:include page="/header"></jsp:include>

@@ -40,7 +40,7 @@ public class VehicleDao {
 				this.pstmt.setString(3, vehicle.getName());
 				this.pstmt.setString(4, vehicle.getRentalable());
 				this.pstmt.setInt(5, vehicle.getHourRate());
-				this.pstmt.setInt(6, vehicle.getHourRate());
+				this.pstmt.setString(6, vehicle.getLocation());
 				this.pstmt.execute();
 				System.out.println("차량등록 성공");
 				check = true;
@@ -89,6 +89,76 @@ public class VehicleDao {
 		return list;
 	}
 	
+	
+	public ArrayList<Vehicle> getVehicTypeleLocation(String type, String location) {
+		ArrayList<Vehicle> list = new ArrayList<>();
+
+		this.conn = DBManager.getConnectionFromMySql();
+
+		if (conn != null) {
+			String sql = "SELECT * FROM vehicle WHERE vehicle_id LIKE ? and location=?";
+			try {
+				this.pstmt = this.conn.prepareStatement(sql);
+				this.pstmt.setString(1, type+"%");
+				this.pstmt.setString(2, location);
+				this.rs = this.pstmt.executeQuery();
+
+				while (this.rs.next()) {
+					String id = this.rs.getString(1);
+					String number = this.rs.getString(2);
+					String name = this.rs.getString(3);
+					String rentalable = this.rs.getString(4);
+					int hourRate = this.rs.getInt(5);
+					String loc = this.rs.getString(6);
+					Vehicle vehicle = new Vehicle(id, number, name, rentalable, hourRate, loc);
+					list.add(vehicle);
+				}
+				System.out.println("자동차 타입 리스트 출력 성공");
+			} catch (SQLException e) {
+				e.printStackTrace();
+			} finally {
+				DBManager.close(conn, pstmt, rs);
+			}
+
+		}
+
+		return list;
+	}
+	
+	
+	public ArrayList<Vehicle> getVehicleLocation(String location) {
+		ArrayList<Vehicle> list = new ArrayList<>();
+
+		this.conn = DBManager.getConnectionFromMySql();
+
+		if (conn != null) {
+			String sql = "SELECT * FROM vehicle WHERE location=?";
+			try {
+				this.pstmt = this.conn.prepareStatement(sql);
+				this.pstmt.setString(1, location);
+				this.rs = this.pstmt.executeQuery();
+
+				while (this.rs.next()) {
+					String id = this.rs.getString(1);
+					String number = this.rs.getString(2);
+					String name = this.rs.getString(3);
+					String rentalable = this.rs.getString(4);
+					int hourRate = this.rs.getInt(5);
+					String loc = this.rs.getString(6);
+					Vehicle vehicle = new Vehicle(id, number, name, rentalable, hourRate, loc);
+					list.add(vehicle);
+				}
+				System.out.println("자동차 타입 리스트 출력 성공");
+			} catch (SQLException e) {
+				e.printStackTrace();
+			} finally {
+				DBManager.close(conn, pstmt, rs);
+			}
+
+		}
+
+		return list;
+	}
 	
 
 	public ArrayList<Vehicle> getAllVehicle() {
@@ -164,7 +234,7 @@ public class VehicleDao {
 
 		this.conn = DBManager.getConnectionFromMySql();
 		if (this.conn != null) {
-			String sql = "UPDATE vehicle SET number =?, name =?, hour_rate=? location=? Where vehicle_id =?";
+			String sql = "UPDATE vehicle SET number =?, name =?, hour_rate=?, location=? Where vehicle_id =?";
 
 			try {
 				this.pstmt = this.conn.prepareStatement(sql);

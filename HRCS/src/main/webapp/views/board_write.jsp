@@ -15,28 +15,29 @@
 				<div>
 					<div>
 						<h2>
-							<a href="board">List</a>
+							<a href="board">게시글 작성</a>
 						</h2>
 					</div>
 					<div>
-						<a type="button" href="board">뒤로가기</a>
-					</div>
-					<div>
+						<div>
+							<a type="button" href="board">뒤로가기</a>
+						</div>
 						<script>
 							function submitForm() {
 								document.getElementById("myForm").submit();
 							}
 						</script>
-
-						<a href="#" onclick="submitForm()">올리기</a>
+						<div>
+							<a href="#" onclick="submitForm()">올리기</a>
+						</div>
 					</div>
 				</div>
 				<div>
 					<form id="myForm" method="post" action="../service">
 						<input type="hidden" name="command" value="write">
-							<textarea style="text-align: top; height: fit-content;" id="title" name="title"
-							placeholder="제목을 작성하세요." autofocus></textarea>
-							<textarea style="text-align: top;" name="content"
+						<textarea style="text-align: top; height: fit-content;" id="title"
+							name="title" placeholder="제목을 작성하세요." autofocus></textarea>
+						<textarea style="text-align: top;" name="content"
 							placeholder="게시글을 작성하세요." autofocus></textarea>
 					</form>
 				</div>
