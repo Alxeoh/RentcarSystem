@@ -24,34 +24,37 @@
 	%>
 
 	<section>
-	<div>
-		<article>
-			<div>
+		<div>
+			<article>
 				<div>
-					<h2>Menu:&nbsp</h2>
 					<div>
-						<a href="admin_carList">렌트카 목록/수정</a>
+						<h2>Menu:&nbsp</h2>
+						<div>
+							<a href="admin_carList">렌트카 목록/수정</a>
+						</div>
+						<div>
+							<a href="admin_addCar">렌트카 등록</a>
+						</div>
+						<div>
+							<a href="admin_userM">회원 관리</a>
+						</div>
+						<div>
+							<a href="admin_bookingList">예약정보</a>
+						</div>
 					</div>
 					<div>
-						<a href="admin_addCar">렌트카 등록</a>
-					</div>
-					<div>
-						<a href="admin_userM">회원 관리</a>
+						<div>
+							<a type="button" href="/admin_userM?delete_id=<%=id%>">회원삭제</a>
+						</div>
+						<div>
+							<a type="button" href="admin_userM">뒤로가기</a>
+						</div>
 					</div>
 				</div>
 				<div>
-					<div>
-						<a type="button" href="/admin_userM?delete_id=<%= id%>">회원삭제</a>
-					</div>
-					<div>
-						<a type="button" href="admin_userM">뒤로가기</a>
-					</div>
-				</div>
-			</div>
-			<div>
-				<h2>회원관리</h2>
-				<br>
-				<table>
+					<h2>회원관리</h2>
+					<br>
+					<table>
 						<thead>
 							<tr>
 								<th colspan="4">회원정보</th>
@@ -91,10 +94,10 @@
 							</tr>
 						</thead>
 					</table>
-			</div>
-		</article>
-	</div>
-</section>
+				</div>
+			</article>
+		</div>
+	</section>
 </body>
 <jsp:include page="/footer"></jsp:include>
 </html>

@@ -38,6 +38,9 @@ if(addCar != null && addCar){
 						<div>
 							<a href="admin_userM">회원 관리</a>
 						</div>
+						<div>
+							<a href="admin_bookingList">예약정보</a>
+						</div>
 					</div>
 					<div>
 						<div>

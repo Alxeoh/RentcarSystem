@@ -204,6 +204,14 @@
 		<url-pattern>/board_modify</url-pattern>
 	</servlet-mapping>
 	
+	<servlet>
+		<servlet-name>admin_bookingList</servlet-name>
+		<jsp-file>/views/admin_bookingList.jsp</jsp-file>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>admin_bookingList</servlet-name>
+		<url-pattern>/admin_bookingList</url-pattern>
+	</servlet-mapping>
 	
 	
 </web-app>

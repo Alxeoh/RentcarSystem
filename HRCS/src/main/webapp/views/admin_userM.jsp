@@ -15,20 +15,23 @@
 <jsp:include page="/header"></jsp:include>
 <body>
 	<%
-UserDao userDao = UserDao.getInstance();
-String delete_id = request.getParameter("delete_id");
-if(delete_id != null && !delete_id.isEmpty()){
-	userDao.deleteUserById(delete_id);
-%>
-	<Script>alert('회원삭제 완료')</Script>
-	<%} 
-String id = (String) session.getAttribute("sessionId");
-if(!id.equals("admin")){
+	UserDao userDao = UserDao.getInstance();
+	String delete_id = request.getParameter("delete_id");
+	if (delete_id != null && !delete_id.isEmpty()) {
+		userDao.deleteUserById(delete_id);
+	%>
+	<Script>
+		alert('회원삭제 완료')
+	</Script>
+	<%
+	}
+	String id = (String) session.getAttribute("sessionId");
+	if (!id.equals("admin")) {
 	System.out.println("관리자계정만 이용가능");
 	request.setAttribute("notAdmin", true);
 	request.getRequestDispatcher("/").forward(request, response);
-}
-%>
+	}
+	%>
 	<section>
 		<div>
 			<article>
@@ -43,6 +46,9 @@ if(!id.equals("admin")){
 						</div>
 						<div>
 							<a href="admin_userM">회원 관리</a>
+						</div>
+						<div>
+							<a href="admin_bookingList">예약정보</a>
 						</div>
 					</div>
 					<div>
@@ -64,9 +70,9 @@ if(!id.equals("admin")){
 							</tr>
 						</thead>
 						<%
-							ArrayList<User> list = userDao.getAllUser();
-							for (int i = 0; i < list.size(); i++) {
-							%>
+						ArrayList<User> list = userDao.getAllUser();
+						for (int i = 0; i < list.size(); i++) {
+						%>
 						<tbody>
 							<tr>
 								<td><a href="admin_userDetail?id=<%=list.get(i).getId()%>"><%=list.get(i).getId()%></a></td>
@@ -76,8 +82,8 @@ if(!id.equals("admin")){
 							</tr>
 						</tbody>
 						<%
-							}
-							%>
+						}
+						%>
 					</table>
 				</div>
 			</article>

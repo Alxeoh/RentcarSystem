@@ -70,7 +70,7 @@ if( log != null  && !log.equals("로그인 상태가 아닙니다.")){
 							<tr>
 								<td>목차</td>
 								<td>게시글 타입</td>
-								<td>작성자ID</td>
+								<td>작성자 ID</td>
 								<td>제목</td>
 								<td>수정일</td>
 								<td>작성일</td>

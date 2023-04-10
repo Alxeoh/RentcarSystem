@@ -89,7 +89,7 @@
 								<td>반납일시</td>
 								<td>예약일시</td>
 							</tr>
-
+						</thead>
 							<%
 							BookingDao bookingDao = BookingDao.getInstance();
 							ArrayList<Booking> list = bookingDao.getBookingListById(log);
@@ -117,7 +117,6 @@
 							<%
 							}}
 							%>
-						</thead>
 					</table>
 				</div>
 			</article>
