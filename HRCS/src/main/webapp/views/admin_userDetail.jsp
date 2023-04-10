@@ -1,3 +1,7 @@
+<%@page import="java.text.DecimalFormat"%>
+<%@page import="booking.Booking"%>
+<%@page import="java.util.ArrayList"%>
+<%@page import="booking.controller.BookingDao"%>
 <%@page import="users.User"%>
 <%@page import="users.controller.UserDao"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
@@ -12,6 +16,7 @@
 <jsp:include page="/header"></jsp:include>
 <body>
 	<%
+	DecimalFormat df = new DecimalFormat("#,###");
 	String log = (String) session.getAttribute("sessionId");
 	if (!log.equals("admin")) {
 		System.out.println("관리자계정만 이용가능");
@@ -79,20 +84,49 @@
 							</tr>
 						</tbody>
 					</table>
-					<br> <br>
-					<table>
+					<br><br>
+						<table>
 						<thead>
 							<tr>
-								<th colspan="5">이용내역</th>
+								<th colspan="7">이용내역</th>
 							</tr>
 							<tr>
-								<td>차량번호</td>
+								<td>예약번호</td>
 								<td>차종</td>
-								<td>렌탈일</td>
-								<td>반납일</td>
+								<td>대여장소</td>
 								<td>이용요금</td>
+								<td>렌트일시</td>
+								<td>반납일시</td>
+								<td>예약일시</td>
 							</tr>
 						</thead>
+							<%
+							BookingDao bookingDao = BookingDao.getInstance();
+							ArrayList<Booking> list = bookingDao.getBookingListById(id);
+							if (list != null) {
+								for (int i = 0; i < list.size(); i++) {
+							%>
+							<tr>
+								<td><%=list.get(i).getBook_code()%></td>
+								<td><%=list.get(i).getVehicle_id()%></td>
+								<td>
+								<%if(list.get(i).getLocation_id().equals("seo1")){%>
+								잠실<%}%><%else if(list.get(i).getLocation_id().equals("seo2")){%>
+								명동<%}%><%else if(list.get(i).getLocation_id().equals("seo3")){%>
+								강남<%}%><%else if(list.get(i).getLocation_id().equals("seo4")){%>
+								서초<%}%><%else if(list.get(i).getLocation_id().equals("seo5")){%>
+								강동<%}%>
+								
+								</td>
+								
+								<td><%String formatted = df.format(list.get(i).getCost()); %><%=formatted%>원</td>
+								<td><%=list.get(i).getReservation_date()%></td>
+								<td><%=list.get(i).getReturn_date()%></td>
+								<td><%=list.get(i).getReg_date()%></td>
+							</tr>
+							<%
+							}}
+							%>
 					</table>
 				</div>
 			</article>
